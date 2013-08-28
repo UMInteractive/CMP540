@@ -132,4 +132,53 @@ rect(300,430,250,100);
 fill(10,94,0);
 bezier(255,395,450,420,400,450,300,500);
 noFill();
+
+//Cow
+noStroke();
+//right rear leg
+fill(120,80,0);
+triangle(185, 400, 195, 450, 200, 400);
+//left rear leg
+triangle(125, 450, 125, 400, 140, 400);
+//right front leg
+fill(140,90,0);
+triangle(190, 400, 200, 450, 205, 400);
+//left front leg
+triangle(120, 450, 120, 400, 135, 400);
+//left body
+fill(140,90,0);
+triangle(120, 420, 122, 380, 205, 400);
+//right body
+triangle(203, 420, 209, 380, 145, 400);
+triangle(120, 380, 165, 394, 209, 380);
+//head
+fill(240,226,193);
+arc(200, 355, 40, 40, 0, HALF_PI+HALF_PI, OPEN);
+fill(190,175,189);
+arc(200, 350, 40, 40, 0, HALF_PI+HALF_PI, OPEN);
+fill(156,100,0);
+quad(185, 370, 215, 370, 210, 390, 190, 390);
+ellipse(201,390,20,16);
+fill(186,122,7);
+ellipse(201,394,12,4);
+ellipse(199,392,4,4);
+ellipse(203,392,4,4);
+//eyes
+fill(80,80,80);
+ellipse(195,380,6,4);
+ellipse(205,380,6,4);
+//tail
+noFill();
+stroke(140,90,0);
+strokeWeight(2.5);
+bezier(110, 420, 115, 370, 128, 380, 128, 380);
+noStroke();
+//tail tip
+fill(40,40,40);
+triangle(108,422,112,423,110,418);
+//hooves
+quad(198,446,200,446,202,448, 197,448);
+quad(193,443,195,443,197,445, 192,445);
+quad(120,446,122,446,124,448, 119,448);
+quad(125,443,127,443,129,445, 124,445);
 }
