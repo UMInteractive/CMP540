@@ -1,15 +1,11 @@
 void setup() {
   size (500,500);
-  background(255,255,255);
+  background(76,167,222);
 }
 
 
 
 void draw() {
-  
-  //sky
-  fill(76,167,222);
-  rect(0,0,500,500);
   
   //dirt
   stroke(67,50,3);
