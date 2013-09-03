@@ -1,4 +1,6 @@
-void setup(){
+int xPosition = 0;
+
+ void setup(){
  size(700,500);
  background(0);
 }
@@ -6,17 +8,10 @@ void setup(){
 void draw(){
 //green diagonals
 
-for (int i=0; i < 720; i=i+5){
-  for (int j=0; j < 700; j=j+10){
-    fill(0, 255, 0, 20);
-    if (j< 350){
-        noFill();
-        }
-     if (j< 300){
-        fill(0, 255, 0, 20);
-        }
-    ellipse(i, (i-j), 5,5);
-  }
+for (int x=0; x < width; x=x+50){
+    fill(0, 255, 0);
+    ellipse(xPosition, x+xPosition, 5,5);
+    xPosition++;
 } 
 //for (int i=0; i < 720; i=i+5){
 //  fill(0, 255, 0, 40);    
@@ -89,30 +84,28 @@ for (int i=0; i < 720; i=i+5){
 
 
 //pink and teal vertical lines
-for (int i=0; i < 2000; i=i+10){
-  for (int j=0; j < 720; j=j+20){
-    fill(0, 0+i, 0+i, 40);
-        if (j< 100){
-        fill(0+i, 0, 0+i, 40);
+for (int i=0; i < 505 ; i=i+10){
+  for (int j=0; j < 705; j=j+20){
+    fill(0, 0+i, 0+i, 80);
+        if (j< 100 || j>180){
+        fill(0+i, 0, 0+i);
         }
-        if (j>180){
-        fill(0+i, 0, 0+i, 40);
+
+      if (j>280){
+        fill(0, 0+i, 0+i);
         }
-        if (j>280){
-        fill(0, 0+i, 0+i, 40);
-        }
-        if (j>380){
-        fill(0+i, 0, 0+i, 40);
+       if (j>380){
+        fill(0+i, 0, 0+i);
         }
         if (j>480){
-        fill(0, 0+i, 0+i, 40);
+        fill(0, 0+i, 0+i);
         }
         if (j>580){
-        fill(0+i, 0, 0+i, 40);
+        fill(0+i, 0, 0+i);
         }
         if (j>680){
-        fill(0, 0+i, 0+i, 40);
-        }
+        fill(0, 0+i, 0+i);
+        }         
     ellipse(j, i, 5,5);
   }
 }
