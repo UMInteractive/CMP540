@@ -1,0 +1,45 @@
+void setup() {
+  size(500, 500);
+  background(#2A8BA7);
+}
+
+void draw() {
+  fill(#BEDDDE);
+  noStroke();
+  strokeWeight(2);
+  ellipse(205, 400, 900, 300);
+  ellipse(460, 339, 600, 260);
+  noStroke();
+  fill(#D8F3FF);
+  ellipse(200, 150, 100, 100);
+  noStroke();
+  fill(#D8F3FF);
+  ellipse(200, 250, 130, 130);
+  noStroke();
+  fill(#D8F3FF);
+  ellipse(200, 370, 170, 170);
+  stroke(#000000);
+  fill(#000000);
+  rect(153, 104, 91, 8);
+  rect(167, 49, 65, 60);
+  fill(#000000);
+  ellipse(185, 138, 8, 8);
+  ellipse(215, 138, 8, 8);
+  fill(#FFD15D);
+  triangle(197, 150, 197, 165, 238, 158);
+  fill(#F51B4E);
+  ellipse(200, 215, 8, 8);
+  ellipse(200, 245, 8, 8);
+  ellipse(200, 275, 8, 8);
+  noStroke();
+  fill(#D8F3FF);
+  ellipse(330, 420, 30, 30);
+  ellipse(361, 420, 30, 30);
+  ellipse(345, 398, 28, 28);
+  stroke(#624325);
+  strokeWeight(2);
+  line(76, 215, 137, 230);
+  line(262, 230, 320, 213);
+  line(87, 217, 95, 205);
+  line(303, 218, 320, 227);
+}
