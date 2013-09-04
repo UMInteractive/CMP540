@@ -1,25 +1,18 @@
 // by Amy Peniston
 // September 3, 2013
 
+  PImage img;
+  
 void setup () {
   size(600,600,P3D);
-  
+  smooth(); 
+  img = loadImage("bg.jpg");
+  noCursor();
 }
 
 
 void draw () {
-  
-  // background experimentation
-  background(#000000);
-  
-  
-  PImage img;
-  img = loadImage("bg.jpg");
   background(img);
-  
-
-  smooth();
-  
   // random colour changes
   
   float r = random(255);
@@ -28,15 +21,6 @@ void draw () {
   
   float c = random(100);
   
-  if (c<10) {
-      r = random(255);
-      g = random(255);
-      b = random(255);
-  } else {
-      r = r;
-      g = g;
-      b = b; 
-  }
   
   // add a floating ball at mousecursor, for kicks
   
