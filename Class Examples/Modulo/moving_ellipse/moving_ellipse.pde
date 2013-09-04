@@ -10,10 +10,13 @@ void draw() {
   fill(255, 0, 0);
   rect(0, 0, width, height);
   fill(magenta);  
-  ellipse(xPosition, height/2, 50, 50);
+  ellipse(xPosition%400, height/2, 50, 50);
   xPosition++;
+  println(xPosition);
+  /*
   if (xPosition%400 == 0) {
      xPosition = 0; 
   }
+  */
 }
 

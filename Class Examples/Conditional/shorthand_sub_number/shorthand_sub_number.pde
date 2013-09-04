@@ -1,5 +1,5 @@
 color magenta = #F700E7;
-int redness = 0;
+int redness = 255;
 void setup() {
   size(500, 500);
 }
@@ -10,8 +10,8 @@ void draw() {
   fill(magenta);  
   ellipse(width/2, height/2, 50, 50);
   redness-= 5;
-  if (redness >= 255) {
-    redness = 0;
+  if (redness <= 0) {
+    redness = 255;
   }
 }
 

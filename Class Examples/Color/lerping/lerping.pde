@@ -8,7 +8,7 @@ void setup() {
 }
 
 void draw() {
-  counter = counter + .01;
+  counter = counter + .1;
   if (counter >= 1) {
     counter = 0;
   }

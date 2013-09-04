@@ -2,7 +2,6 @@ int theNumber = 5;
 
 void setup() {
   size(200, 200);
-  lying = true;
 }
 
 void draw() {
