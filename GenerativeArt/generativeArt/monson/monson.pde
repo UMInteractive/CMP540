@@ -10,7 +10,7 @@ void setup() {
 
 void draw() {
   noStroke();
-  fill(random(0, 255), random(0,255), random(0,255), 40);
+  fill(random(0, 255), random(0,255), random(0,255), 30);
   ellipse(mouseX,x,300,300);  
   
   x = x - 50;
