@@ -1,0 +1,90 @@
+size(700,350);
+background(35);
+
+//pacman
+smooth();
+fill(255,255,0);
+arc(50, 150,80,80, radians(30), radians (320));
+noSmooth();
+
+//pacman pellets
+fill(255);
+ellipse(100,150,10,10);
+ellipse(125,150,10,10);
+ellipse(150,150,10,10);
+ellipse(175,150,10,10);
+ellipse(200,150,10,10);
+
+//red enemy
+strokeWeight(5);
+strokeJoin(ROUND);
+fill(255,0,0);
+rect(225,128,45,45);
+
+//red enemy's eyes
+strokeWeight(1);
+fill(255);
+ellipse(239, 139,10,10);
+ellipse(257, 139,10,10);
+fill(0);
+ellipse(236, 139,6,6);
+ellipse(255, 139,6,6);
+
+//green enemey
+strokeWeight(5);
+strokeJoin(BEVEL);
+fill(0,255,0);
+rect(300,128,45,45);
+
+//green enemy's eyes
+strokeWeight(1);
+fill(255);
+ellipse(316, 139,10,10);
+ellipse(333, 139,10,10);
+fill(0);
+ellipse(313, 139,6,6);
+ellipse(330, 139,6,6);
+
+//orange enemy
+strokeWeight(5);
+fill(255,140,0);
+rect(375,128,45,45);
+noFill();
+
+//orange enemy's eyes
+strokeWeight(1);
+fill(255);
+ellipse(387, 139,10,10);
+ellipse(405, 139,10,10);
+fill(0);
+ellipse(385, 139,6,6);
+ellipse(402, 139,6,6);
+
+//light blue enemy
+strokeWeight(5);
+fill(0,255,255);
+rect(450,128,45,45);
+
+//light blue enemy's eyes
+strokeWeight(1);
+fill(255);
+ellipse(463, 139,10,10);
+ellipse(480, 139,10,10);
+fill(0);
+ellipse(461, 139,6,6);
+ellipse(476, 139,6,6);
+
+//pacman pellets
+fill(255);
+ellipse(525,150,10,10);
+ellipse(550,150,10,10);
+ellipse(575,150,10,10);
+ellipse(605,150,10,10);
+
+ellipse(605,125,10,10);
+ellipse(605,100,10,10);
+ellipse(605,75,10,10);
+ellipse(605,50,10,10);
+ellipse(605,25,10,10);
+
+
