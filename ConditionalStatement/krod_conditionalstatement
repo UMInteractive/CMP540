@@ -1,0 +1,15 @@
+int x = 5;
+
+void setup(){
+  size(500,500);
+}
+
+void draw() {
+  if (x > 15) {
+    println("Need help.");
+  }
+  else {
+    println("All stressed out... @$%#&");
+  }
+}
+  
