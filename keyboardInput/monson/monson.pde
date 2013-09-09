@@ -2,7 +2,7 @@ int xPosition = 0;
 int value = 0;
 int value2 = 50;
 int value3 = 0;
-
+boolean onTop=true;
 
 void setup() {
 size(500,500);
@@ -25,24 +25,16 @@ void draw() {
 }
 
 void keyPressed() {
-//change color  
-  if (value == 0) {
-    value = 255;
-  } else {
-    value = 0;
-  }
-  
-//change size  
-  if (value2 == 50) {
-    value2 = 60;
-  } else {
-    value2 = 50;
-  }
-  
-//change position    
-  if (value3 == 0) {
-    value3 = 200;
-  } else {
-    value3 = 0;
-  }
+if (onTop) {
+ onTop = false;
+ value = 255;
+ value2 = 60;
+ value3 = 300;
+}
+else {
+ onTop = true;
+ value = 0;
+ value2 = 50;
+ value3 = 0;
+}
 }
