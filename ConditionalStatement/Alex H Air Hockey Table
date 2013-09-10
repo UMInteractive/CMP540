@@ -1,5 +1,5 @@
 float x = 10; // float x and y, speed variables as seen on http://processing.org/tutorials/pvector/ web page //
-float y = 300;
+float y = 115;
 float xspeed = 4;//increase the number if you want the puck to go faster!!//
 float yspeed = 1;//do not really see/understand the difference when increase number ask//
 
