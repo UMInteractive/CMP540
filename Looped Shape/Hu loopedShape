@@ -1,0 +1,40 @@
+//looped shape
+
+color [] green = {#006400, #008B00, #00CD00, #00FF00, #9AFF9A};
+int d = 25;
+
+void setup(){
+  size(600, 600);
+  smooth();
+  frameRate(5);
+}
+
+void draw(){
+  background(0);
+  noStroke();
+  
+  //fill the color randomly
+  fill(int(random(green[1], green[4])));
+ 
+  //draw arcs
+  for(int x1 = 0; x1 <= 300; x1 +=20){
+    for(int y1 = 0; y1 <= 300; y1 +=20){
+      arc(x1, y1, d, d, radians(180), radians(270));
+    }
+  }
+  for(int x2 = 300; x2 <= 600; x2 +=20){
+    for(int y2 = 0; y2 <= 300; y2 += 20){
+      arc(x2, y2, d, d, radians(270), radians(360));
+    }
+  }
+  for(int x3 = 300; x3 <= 600; x3 +=20){
+    for(int y3 = 300; y3 <= 600; y3 +=20){
+      arc(x3, y3, d, d, radians(0), radians(90));
+    }
+  }
+  for(int x4 = 0; x4 <= 300; x4 +=20){
+    for(int y4 = 300; y4 <= 600; y4 +=20){
+      arc(x4, y4, d, d, radians(90), radians(180));
+    }
+  }
+}
