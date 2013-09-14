@@ -1,0 +1,121 @@
+float y=100;
+float x=0;
+
+void setup() {
+  size(500, 500);
+  y = height *1;
+  x = width *1;
+}
+
+void draw() {
+  background(#000000);
+  loop();
+  strokeWeight(2);
+  stroke(#FFFFFF);
+  fill(#256C0F);
+  ellipse(25, y, 30, 30);
+  ellipse(100, y, 30, 30);
+  ellipse(175, y, 30, 30);
+  ellipse(250, y, 30, 30);
+  ellipse(325, y, 30, 30);
+  ellipse(400, y, 30, 30);
+  ellipse(475, y, 30, 30);
+  y=y-1;//increase number to make circles go faster//
+  if (y<0) {
+    y=height;
+  }
+  fill(#F57716);
+  ellipse(25, y+150, 30, 30);
+  ellipse(100, y+150, 30, 30);
+  ellipse(175, y+150, 30, 30);
+  ellipse(250, y+150, 30, 30);
+  ellipse(325, y+150, 30, 30);
+  ellipse(400, y+150, 30, 30);
+  ellipse(475, y+150, 30, 30);
+  y=y-1;//increase number to make circles go faster//
+  if (y<0) {
+    y=height;
+  }
+  fill(#256C0F);
+  ellipse(25, y+300, 30, 30);
+  ellipse(100, y+300, 30, 30);
+  ellipse(175, y+300, 30, 30);
+  ellipse(250, y+300, 30, 30);
+  ellipse(325, y+300, 30, 30);
+  ellipse(400, y+300, 30, 30);
+  ellipse(475, y+300, 30, 30);
+  y=y-1;//increase number to make circles go faster//
+  if (y<0) {
+    y=height;
+  }
+  fill(#F57716);
+  ellipse(25, y+450, 30, 30);
+  ellipse(100, y+450, 30, 30);
+  ellipse(175, y+450, 30, 30);
+  ellipse(250, y+450, 30, 30);
+  ellipse(325, y+450, 30, 30);
+  ellipse(400, y+450, 30, 30);
+  ellipse(475, y+450, 30, 30);
+  y=y-1;//increase number to make circles go faster//
+  if (y<0) {
+    y=height;
+  }
+  fill(#F57716);
+  ellipse(x, 25, 30, 30);
+  ellipse(x, 100, 30, 30);
+  ellipse(x, 175, 30, 30);
+  ellipse(x, 250, 30, 30);
+  ellipse(x, 325, 30, 30);
+  ellipse(x, 400, 30, 30);
+  ellipse(x, 475, 30, 30);
+  x=x-1;//increase number to make circles go faster//
+  if (x<0) {
+    x=width;
+  }
+  fill(#256C0F);
+  ellipse(x+150, 25, 30, 30);
+  ellipse(x+150, 100, 30, 30);
+  ellipse(x+150, 175, 30, 30);
+  ellipse(x+150, 250, 30, 30);
+  ellipse(x+150, 325, 30, 30);
+  ellipse(x+150, 400, 30, 30);
+  ellipse(x+150, 475, 30, 30);
+  x=x-1;//increase number to make circles go faster//
+  if (x<0) {
+    x=width;
+  }
+  fill(#F57716);
+  ellipse(x+300, 25, 30, 30);
+  ellipse(x+300, 100, 30, 30);
+  ellipse(x+300, 175, 30, 30);
+  ellipse(x+300, 250, 30, 30);
+  ellipse(x+300, 325, 30, 30);
+  ellipse(x+300, 400, 30, 30);
+  ellipse(x+300, 475, 30, 30);
+  x=x-1;//increase number to make circles go faster//
+  if (x<0) {
+    x=width;
+  }
+  fill(#256C0F);
+  ellipse(x+450, 25, 30, 30);
+  ellipse(x+450, 100, 30, 30);
+  ellipse(x+450, 175, 30, 30);
+  ellipse(x+450, 250, 30, 30);
+  ellipse(x+450, 325, 30, 30);
+  ellipse(x+450, 400, 30, 30);
+  ellipse(x+450, 475, 30, 30);
+  x=x-1;//increase number to make circles go faster//
+  if (x<0) {
+    x=width;
+  }
+}
+
+void mousePressed() {
+  noLoop();
+  fill(#FFFFFF);
+  ellipse(mouseX, mouseY, 20, 20);//white circle appears when click mouse//
+}
+
+void mouseReleased() {
+  loop();
+}
