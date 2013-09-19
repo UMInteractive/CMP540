@@ -1,8 +1,12 @@
 // For this conditional statement, please change the value 'changeThis' to increase
 // or decrese the width of the blue lined background
 
+// I immplemented an "else-if" statement for the color of the horizonzontal lines
+// If the value of 'changeThis' is less than 30 the lines will be gray
+// if the value of 'changeThis' is more than 30, the lines will be blue
+
   int changeThis;
-  changeThis = 20;
+  changeThis = 25;
 
 
 // Set the Size
@@ -13,8 +17,12 @@ size(500,500);
 background(255);
 
 // Automate the blue lines process
-stroke(#DFDEFA);
 for (int blueLine = changeThis; blueLine < 500; blueLine += changeThis) {
+  if (changeThis < 30) {
+    stroke(175);
+  } else {
+    stroke(#DFDEFA);
+  }
 line(0, blueLine, 500, blueLine);
 }
 
