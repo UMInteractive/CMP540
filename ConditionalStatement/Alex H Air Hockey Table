@@ -1,7 +1,7 @@
 float x = 10; // float x and y, speed variables as seen on http://processing.org/tutorials/pvector/ web page //
 float y = 115;
-float xspeed = 4;//increase the number if you want the puck to go faster!!//
-float yspeed = 1;//do not really see/understand the difference when increase number ask//
+float xspeed = 5;
+float yspeed = 5;
 
 //x&ydirection equals x&y speed//
 
@@ -42,6 +42,6 @@ void draw() {
   if (x < 10 || x > 490) {//how far right and left puck goes(x and width)//
     xspeed *=-1;}//when increase the # puck disappears so don't//
   y = y + yspeed;
-  if (y < 115 || y > 390) {//how high and how low puck goes(y and height)//
+  if (y < 115 || y > 387) {//how high and how low puck goes(y and height)//
     yspeed *=-1;}//don't increase number//
 }
