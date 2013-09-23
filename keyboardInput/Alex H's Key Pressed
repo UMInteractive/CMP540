@@ -1,0 +1,26 @@
+void setup() {
+  size (400, 400);
+}
+
+void draw() { 
+  fill(#7C7C7C);
+  rect(185, 250, 30, 45);
+  rect(125, 120, 150, 150);
+  rect(103, 280, 195, 70);
+  fill(0);
+  rect(240, 295, 40, 2);
+  rect(130, 305, 70, 1);
+  rect(130, 315, 70, 1);
+  fill(#405C71);
+  rect(140, 135, 120, 120);
+  textFont(loadFont("serif.vlw"));//font saved on computer//
+  if (keyPressed == true) {//press down any key for a greeting//
+    textSize(15);
+    fill(0);
+    text("Hello There", 158, 200);
+  } else {
+    textSize(15);
+    fill(0);
+    text("Loading...", 170,200);
+  }
+}
