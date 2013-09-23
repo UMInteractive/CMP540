@@ -6,14 +6,16 @@
 // if the value of 'changeThis' is more than 30, the lines will be blue
 
   int changeThis;
-  changeThis = 25;
 
-
+void setup() {
 // Set the Size
 size(500,500);
-  
+  changeThis = 25;
+
+}
 // Background: White Color with blue horizontal stripes and 1 vertical red
 // Attempting to look like it's on lined paper
+void draw() {
 background(255);
 
 // Automate the blue lines process
@@ -110,7 +112,7 @@ stroke(255);
 
 
 
-
+}
 
 
 
