@@ -14,7 +14,7 @@ void draw() {
   fill(#405C71);
   rect(140, 135, 120, 120);
   textFont(loadFont("serif.vlw"));//font saved on computer//
-  if (keyPressed == true) {//press down a key for a greeting//
+  if (keyPressed == true) {//press down any key for a greeting//
     textSize(15);
     fill(0);
     text("Hello There", 158, 200);
