@@ -3,7 +3,7 @@ void setup() {
   background(#2A8BA7);
 }
 
-void draw() {
+void draw() {//snowman in a field of snow//
   fill(#BEDDDE);
   noStroke();
   strokeWeight(2);
