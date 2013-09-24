@@ -1,0 +1,28 @@
+float x2;
+float y2;
+float angle;
+float radius;
+
+void setup() {
+  size(500,500);
+  noStroke();
+  frameRate(320);
+  background(#000000);
+  radius = 5;
+}
+
+void draw() {
+    x2 = 250 + sin(radians(angle))*(radius/2);//sin function seen in Clay Ewing's Class Example//
+    y2 = 250 + tan(radians(angle))*(radius/2);
+    fill(random(255), random(255), random(255), random(255));
+    ellipse(x2, y2, 5, 5);
+    angle--;
+    radius = radius + .05;//vertical hourglass//
+    
+    x2 = 250 + tan(radians(angle))*(radius/2);
+    y2 = 250 + sin(radians(angle))*(radius/2);//sin function seen in Clay Ewing's Class Example//
+    fill(random(255), random(255), random(255), random(255));
+    ellipse(x2, y2, 5, 5);
+    angle--;
+    radius = radius + .05;//horizontal hourglass//
+}
