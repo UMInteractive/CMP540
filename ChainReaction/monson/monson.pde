@@ -34,7 +34,7 @@ void draw() {
   fill(0, 256, 0);
   rect(gsx, gsy, 20, 20);
 
-  //white bouncer ball
+  //white bouncer
   fill(256, 256, 256);
   ellipse(480, 500, 80, 80);
 
