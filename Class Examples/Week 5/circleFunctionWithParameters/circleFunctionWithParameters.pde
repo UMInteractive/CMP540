@@ -1,5 +1,5 @@
 void setup() {
-  size(500,500);
+  size(500, 500);
 }
 
 void draw() {
@@ -8,5 +8,5 @@ void draw() {
 }
 
 void circle(int x, int y, int diameter) {
- ellipse(x, y, diameter, diameter); 
+  ellipse(x, y, diameter, diameter);
 }
