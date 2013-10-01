@@ -36,11 +36,7 @@ void draw() {
   } 
   
   else {
-    
-    fill(current,100);
-    stroke(255);
-    rect(-15,-15,30,30);
-    
+
     fill(255);
     stroke(0);
     rect(-15,-15,30,30);
