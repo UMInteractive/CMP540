@@ -12,8 +12,7 @@ println("you are " + yourAge + " years old");
 
 void draw(){
   mau5head(random(800),random(800));
- // mau5head(400,100);
- // mau5head(100,500);
+
 }
   void mau5head(float x, float y){
   translate(x, y);  
