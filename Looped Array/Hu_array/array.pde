@@ -31,8 +31,6 @@ void draw(){
   for(int i = 0; i < x.length; i ++){
   star(x[i], y[i], random(5, 10), random(12, 15), 5);
   }
-  
-  con();
 } 
   
 void star(float x, float y, float radius1, float radius2, int npoints) {
