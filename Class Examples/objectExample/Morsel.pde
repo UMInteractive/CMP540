@@ -3,8 +3,10 @@ class Morsel {
   float y;
   color m_color;
   float thickness;
+  boolean eaten;
 
   Morsel() {
+    eaten = false;
     x = random(width);
     y = random(height);
     m_color = color(random(255), random(255), random(255));
