@@ -1,0 +1,108 @@
+
+float x;
+float y;
+
+color color1;
+int radius = 20;
+int bg;
+void setup () {
+  bg = 0;
+  size (500, 500);
+  background (bg);
+  color1 = color(random(255), random(255), random(255));
+}
+
+void draw () {
+  float targetX = mouseX;
+}
+
+void mousePressed () {
+  fill (color1);
+  ellipse (mouseX, mouseY, radius, radius);
+}
+
+void mouseDragged () {
+  fill (color1);
+  stroke (color1);
+  ellipse (mouseX, mouseY, radius, radius);
+}
+
+
+void keyPressed () {
+
+  switch(key) {
+  case '-':
+    if (radius >= 0) {
+      radius = radius + 10; 
+
+      if (radius >=100) {
+        radius = 100;
+      }
+    }
+    break;
+  case '+':
+    if (radius <=100) {
+      radius = radius - 10;
+      if (radius <= 5)
+        radius = 5;
+    }
+  }
+
+  if (key == 'x') {
+
+    color1 = color(random(255), random(255), random(255));
+  }
+
+  if (key == 'r') {
+
+    color1 = color(255, 0, 0);
+  }
+
+
+  if (key == 'g') {
+
+    color1 = color(0, 255, 0);
+  }
+  if (key == 'b') {
+
+    bg = color(0, 0, 255);
+  }
+
+
+  if (key == 's') {
+    saveFrame("Art-##.tif");
+  }
+
+  if (key == 'e') {
+    if ( bg >=255 ) {
+      color1 = color(255);
+    }
+    else if ( bg <= 0) {
+      color1 = color(0);
+    }
+  }
+
+  if (key == CODED) {
+    if (keyCode == DOWN)
+      if ( bg > 0 ) {
+        bg = bg - 255;
+        background(bg);
+      }
+
+      else {   
+        background(bg);
+      }
+  }
+    if (key == CODED) {
+      if (keyCode == UP) {
+        if ( bg < 255 ) {
+          bg = bg + 255;
+          background(bg);
+        }
+      }
+
+        else {   
+          background(bg);
+        }
+      }
+    
