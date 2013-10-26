@@ -55,17 +55,17 @@ void keyPressed () {
 
   if (key == 'r') {
 
-    color1 = color(255, 0, 0);
+    color1 = color(255, random(255), random(255));
   }
 
 
   if (key == 'g') {
 
-    color1 = color(0, 255, 0);
+    color1 = color(random(255), 255,random(255));
   }
   if (key == 'b') {
 
-    bg = color(0, 0, 255);
+    color1 = color(random(255), random(255), 255);
   }
 
 
@@ -106,3 +106,4 @@ void keyPressed () {
         }
       }
     
+}
