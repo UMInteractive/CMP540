@@ -1,0 +1,22 @@
+
+void setup() 
+{
+  size(500, 500);
+  background(0);
+}
+
+void draw() 
+{
+    for ( int x = 0; x < width; x+=10 )
+    {
+      rect(x, height/2, 10, 10);
+    }
+  
+    int y = 0;
+  
+    while ( y < height )
+    {
+      rect(width/2, y, 10, 10);
+      y+=10;
+    }
+}
