@@ -1,36 +1,49 @@
-int speed = 1;
 float x;
-float xpos;
+float y;
+float easing = 0.05;
+float w;
+int mickeyColor = 0;
 
 void setup() {
   size (800, 500);
   noStroke();
+  smooth();
 }
 
 void draw() {
   background(25, 200, 245);
-  drawMickey(100, 100, 60);
-  drawMickey(200, 300, 50);
-  drawMickey(50, 400, 10);
-  drawMickey(300, 20, 100);
-  fly();
-  bounce();
+  fill(mickeyColor);
+  drawMickey(0, 0, 100);
+  drawMickey(50, 200, 10);
+  drawMickey(300, 100, 50);
+  follow();
 }
 
-void fly() {
-  x = x+speed;
+void drawMickey(float xpos, float ypos, float w) {
+  ellipse(xpos+x, ypos+y, w, w);
+  ellipse(xpos+x+((0.8)*w), ypos+y+((0.6)*w), (w+w/2), (w+w/2));
+  ellipse(xpos+x+(1.6*w), ypos+y, w, w);
 }
 
-void drawMickey(float xpos, float y, float w) {
-  fill(0);
-  ellipse(xpos+x, y, w, w);
-  ellipse(xpos+x+((0.8)*w), y+((0.6)*w), (w+w/2), (w+w/2));
-  ellipse(xpos+x+(1.6*w), y, w, w);
-}
 
-void bounce() {
-  if ((x>(width-(xpos+x))) || (x<0)) {
-    speed = speed * -1;
+void follow(){
+  float targetX = mouseX;
+  float dx = targetX - x;
+  if(abs(dx) > 1) {
+    x += dx * easing;
+  }
+  
+  float targetY = mouseY;
+  float dy = targetY - y;
+  if(abs(dy) > 1) {
+    y += dy * easing;
   }
 }
 
+void mouseReleased() {
+  if (mickeyColor == 0) {
+    mickeyColor = 255;
+  } else {
+    mickeyColor = 0;
+  }
+}
