@@ -11,7 +11,7 @@ void setup() {
     circleXpos[i]=random(10, 490);
     circleYpos[i]=random(10, 490);
   }
-  frameRate(4);
+//  frameRate(4);
 }
 
 void draw() {
