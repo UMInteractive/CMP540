@@ -4,13 +4,11 @@ void setup() {
 }
 
 void draw() {
-  ellipse(width/2, height/2, randomWidth(), height * sin(angle));  
-  angle++
+  ellipse(width/2, height/2, random(width), height * sin(angle));  
+  angle++;
 
-void randomWidth() {
- float val = random(width); 
 }
 
 void mousePressed() {
-  background(127;  
+  background(127);  
 }
