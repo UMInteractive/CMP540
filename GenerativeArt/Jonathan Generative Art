@@ -1,0 +1,50 @@
+//based on assessment 5
+int stepper;
+float d;
+float f=255;
+float centerOfScreen(){
+  return dist(250,250,mouseX,mouseY);
+}
+
+void circleCross(int x, int y, float size, int space){
+  fill(f);
+  ellipse(x + space, y, size, size);
+  ellipse(x + 50 + space, y, size, size);
+  ellipse(x - space, y, size, size);
+  ellipse(x - 50 - space, y, size, size);
+  ellipse(x, y + space, size,size);
+  ellipse(x, y + 50 + space, size,size);
+  ellipse(x, y - space, size,size);
+  ellipse(x, y - 50 - space, size,size);
+  ellipse(x+space,y+space,size,size);
+  ellipse(x+space,y-space,size,size);
+  ellipse(x-space,y-space,size,size);
+  ellipse(x-space,y+space,size,size);
+  if (keyPressed){
+    if (key==' '){
+      f--;
+    }
+  }
+}
+
+void setup() {
+  size(500, 500);  
+  background(0);
+}
+
+void draw() {
+  
+  float proximity = centerOfScreen();
+  if (proximity <= 200) {
+    circleCross(width/2, height/2, proximity, stepper);
+    stepper++;
+  }
+  else {
+    stepper = 0;
+    rect(width/2, height/2, 10, 10);
+    f=255;
+  }
+}
+
+
+
