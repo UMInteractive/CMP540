@@ -1,0 +1,338 @@
+float angle;
+float angles;
+float locationX=mouseX;
+float locationY=mouseY;
+int flash = 0;
+
+void setup(){
+  size (500,500);
+  background(#000121);
+  noStroke();
+  ellipse(450,510,100,100);
+  fill(#E0FDFF);
+  for (int s=0; s<50; s++){
+   float r=random(width);
+   float v=random(0,275);
+   float m =550-v;
+   rectMode(CENTER);
+   rect(r,v,3,3);
+   rect(r,m,3,3); 
+  }
+  fill(#FFFDB2);
+  ellipse(450,40,100,100);
+}
+
+void draw(){
+  rectMode(CORNER);
+  noStroke();
+  fill(#030303);
+  rect(0,250,400,50);
+  noFill();
+  stroke(#AD00AA);
+  strokeWeight(2);
+  bezier(0,88,93,9,32,248,325,162);
+  ellipse(200,151,48,58);
+  bezier(0,462,93,541,32,302,325,388);
+  ellipse(200,399,48,58);
+  stroke(0);
+  strokeWeight(2);
+  bezier(0,89,93,10,32,249,325,163);
+  ellipse(200,150,50,60);
+  bezier(0,461,93,540,32,301,325,387);
+  ellipse(200,400,50,60);
+  int verticals = 15;
+  for (int i = 0; i <= verticals; i++) {
+  float t = i / float(verticals);
+  float x = bezierPoint(0,93,32,325,t);
+  float y = bezierPoint(89,10,249,163,t);
+  float z = bezierPoint(461,540,301,387,t);
+  line(x,y,x,z);
+}
+  fill(#030303);
+  ellipse(325,175,150,150);
+      for (float i = 0; i < 360; i = i + 360/12) {
+      strokeWeight(3);
+      stroke(0);
+      fill(255,255,255);
+      //float adjustedX = 325 + cos(radians(i))*(150/2);
+      //float adjustedY = 175 + sin(radians(i))*(150/2);
+      float adjustedX = 325 + cos(radians(i+angle))*(150/2);
+      float adjustedY = 175 + sin(radians(i+angle))*(150/2);
+      ellipse(adjustedX, adjustedY, 10, 10);
+    }
+  angle++;
+  fill(#030303);
+  ellipse(325,375,150,150);
+      for (float i = 0; i < 360; i = i + 360/12) {
+      strokeWeight(3);
+      stroke(0);
+      fill(255,255,255);
+      //float adjustedX = 325 + cos(radians(i))*(150/2);
+      //float adjustedY = 375 + sin(radians(i))*(150/2);
+      float adjustedX = 325 + cos(radians(i+angles))*(150/2);
+      float adjustedY = 375 + sin(radians(i+angles))*(150/2);
+      ellipse(adjustedX, adjustedY, 10, 10);
+    }
+    angles--;
+  fill(#030303);
+  rect(200,225,50,100);
+  rect(130,237.5,50,75);
+  rect(100,200,25,150);
+  rect(30,220,60,110);
+  
+  if (mouseX > 200 && mouseX < 240){
+   if(mouseY > 218 && mouseY < 332){
+  switch(flash) {
+  case 0:
+  fill(#E50000);
+  rect(210,220,30,10);
+  rect(210,320,30,10);
+  flash++;
+  break;
+  case 1:
+  fill(#E50000);
+  rect(210,220,30,10);
+  rect(210,320,30,10);
+  flash++;
+  break;
+  case 2:
+  fill(#0DB213);
+  rect(210,220,30,10);
+  rect(210,320,30,10);
+  flash++;
+  break;
+  case 3:
+  fill(#0DB213);
+  rect(210,220,30,10);
+  rect(210,320,30,10);
+  flash=0;
+  break;  
+  }
+   }else{
+     fill(#E50000);
+  rect(210,220,30,10);
+  rect(210,320,30,10);
+  }
+  } else{
+     fill(#E50000);
+  rect(210,220,30,10);
+  rect(210,320,30,10);
+  }
+  
+  if (mouseX > 130 && mouseX < 180){
+   if(mouseY > 232.5 && mouseY < 317.5){
+     switch(flash) {
+  case 0:
+  fill(#0EEA0C);
+  rect(135,237.5,10,15);
+  rect(145,237.5,10,15);
+  rect(155,237.5,10,15);
+  rect(165,237.5,10,15);
+  rect(135,297.5,10,15);
+  rect(145,297.5,10,15);
+  rect(155,297.5,10,15);
+  rect(165,297.5,10,15);
+  flash++;
+  break;
+  case 1:
+  fill(#0422B2);
+  rect(135,237.5,10,15);
+  rect(145,237.5,10,15);
+  rect(155,237.5,10,15);
+  rect(165,237.5,10,15);
+  rect(135,297.5,10,15);
+  rect(145,297.5,10,15);
+  rect(155,297.5,10,15);
+  rect(165,297.5,10,15);
+  flash++;
+  break;
+  case 2:
+  fill(#C60A9E);
+  rect(135,237.5,10,15);
+  rect(145,237.5,10,15);
+  rect(155,237.5,10,15);
+  rect(165,237.5,10,15);
+  rect(135,297.5,10,15);
+  rect(145,297.5,10,15);
+  rect(155,297.5,10,15);
+  rect(165,297.5,10,15);
+  flash++;
+  break;
+  case 3:
+  fill(#FFEE31);
+  rect(135,237.5,10,15);
+  rect(145,237.5,10,15);
+  rect(155,237.5,10,15);
+  rect(165,237.5,10,15);
+  rect(135,297.5,10,15);
+  rect(145,297.5,10,15);
+  rect(155,297.5,10,15);
+  rect(165,297.5,10,15);
+  flash=0;
+  break;
+  }}else{
+  fill(#0EEA0C);
+  rect(135,237.5,10,15);
+  rect(145,237.5,10,15);
+  rect(155,237.5,10,15);
+  rect(165,237.5,10,15);
+  rect(135,297.5,10,15);
+  rect(145,297.5,10,15);
+  rect(155,297.5,10,15);
+  rect(165,297.5,10,15);
+}}else{
+fill(#0EEA0C);
+  rect(135,237.5,10,15);
+  rect(145,237.5,10,15);
+  rect(155,237.5,10,15);
+  rect(165,237.5,10,15);
+  rect(135,297.5,10,15);
+  rect(145,297.5,10,15);
+  rect(155,297.5,10,15);
+  rect(165,297.5,10,15);
+}
+ 
+   if (mouseX > 92.5 && mouseX < 137.5){
+   if(mouseY > 180 && mouseY < 330){
+     switch(flash) {
+  case 0: 
+  fill(#04D4DE);
+  ellipse(112.5,200,25,15);
+  ellipse(112.5,350,25,15);
+  ellipse(112.5,220,10,10);
+  ellipse(112.5,240,10,15);
+  ellipse(112.5,330,10,10);
+  ellipse(112.5,310,10,15);
+  flash++;
+  break;
+  case 1: 
+  fill(#04D4DE);
+  ellipse(112.5,200,25,15);
+  ellipse(112.5,350,25,15);
+  ellipse(112.5,220,10,10);
+  ellipse(112.5,240,10,15);
+  ellipse(112.5,330,10,10);
+  ellipse(112.5,310,10,15);
+  flash++;
+  break;
+  case 2: 
+  fill(#04D4DE);
+  ellipse(112.5,200,25,15);
+  ellipse(112.5,350,25,15);
+  ellipse(112.5,220,10,10);
+  ellipse(112.5,240,10,15);
+  ellipse(112.5,330,10,10);
+  ellipse(112.5,310,10,15);
+  flash++;
+  break;
+  case 3: 
+  fill(#F00000);
+  ellipse(112.5,200,25,15);
+  ellipse(112.5,350,25,15);
+  ellipse(112.5,220,10,10);
+  ellipse(112.5,240,10,15);
+  ellipse(112.5,330,10,10);
+  ellipse(112.5,310,10,15);
+  flash=0;
+  break;
+     }
+   } else{
+     fill(#04D4DE);
+  ellipse(112.5,200,25,15);
+  ellipse(112.5,350,25,15);
+  ellipse(112.5,220,10,10);
+  ellipse(112.5,240,10,15);
+  ellipse(112.5,330,10,10);
+  ellipse(112.5,310,10,15);
+   }
+   }else{
+     fill(#04D4DE);
+  ellipse(112.5,200,25,15);
+  ellipse(112.5,350,25,15);
+  ellipse(112.5,220,10,10);
+  ellipse(112.5,240,10,15);
+  ellipse(112.5,330,10,10);
+  ellipse(112.5,310,10,15);
+   }
+   
+  
+  if (mouseX > 25 && mouseX < 93){
+   if(mouseY > 220 && mouseY < 330){
+     switch(flash) {
+  case 0:
+  fill(#FFF700);
+  triangle(60,220,90,220,75,250);
+  triangle(30,220,45,250,30,250);
+  triangle(60,220,30,220,45,250);
+  triangle(75,250,90,250,90,220);
+  triangle(60,330,90,330,75,300);
+  triangle(30,330,45,300,30,300);
+  triangle(60,330,30,330,45,300);
+  triangle(75,300,90,300,90,330);
+  flash++;
+  break;
+  case 1:
+  fill(255,255,255);
+  triangle(60,220,90,220,75,250);
+  triangle(30,220,45,250,30,250);
+  triangle(60,220,30,220,45,250);
+  triangle(75,250,90,250,90,220);
+  triangle(60,330,90,330,75,300);
+  triangle(30,330,45,300,30,300);
+  triangle(60,330,30,330,45,300);
+  triangle(75,300,90,300,90,330);
+  flash++;
+  break;
+  case 2:
+  fill(0);
+  triangle(60,220,90,220,75,250);
+  triangle(30,220,45,250,30,250);
+  triangle(60,220,30,220,45,250);
+  triangle(75,250,90,250,90,220);
+  triangle(60,330,90,330,75,300);
+  triangle(30,330,45,300,30,300);
+  triangle(60,330,30,330,45,300);
+  triangle(75,300,90,300,90,330);
+  flash++;
+  break;
+  case 3:
+  fill(0);
+  triangle(60,220,90,220,75,250);
+  triangle(30,220,45,250,30,250);
+  triangle(60,220,30,220,45,250);
+  triangle(75,250,90,250,90,220);
+  triangle(60,330,90,330,75,300);
+  triangle(30,330,45,300,30,300);
+  triangle(60,330,30,330,45,300);
+  triangle(75,300,90,300,90,330);
+  flash=0;
+  break;
+     }
+   }else{
+     fill(#FFF700);
+  triangle(60,220,90,220,75,250);
+  triangle(30,220,45,250,30,250);
+  triangle(60,220,30,220,45,250);
+  triangle(75,250,90,250,90,220);
+  triangle(60,330,90,330,75,300);
+  triangle(30,330,45,300,30,300);
+  triangle(60,330,30,330,45,300);
+  triangle(75,300,90,300,90,330);
+   }
+  }else{
+    fill(#FFF700);
+  triangle(60,220,90,220,75,250);
+  triangle(30,220,45,250,30,250);
+  triangle(60,220,30,220,45,250);
+  triangle(75,250,90,250,90,220);
+  triangle(60,330,90,330,75,300);
+  triangle(30,330,45,300,30,300);
+  triangle(60,330,30,330,45,300);
+  triangle(75,300,90,300,90,330);
+  }
+
+  
+  strokeWeight(.5);
+  stroke(#3C194D,30);
+  line(0,275,500,275);
+}

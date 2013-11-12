@@ -1,0 +1,38 @@
+float x; float y; float r; color f = 255; 
+PImage cmap;
+void setup(){
+  size(700,700);
+  background(0);
+  r=5;
+  cmap = loadImage("colormap.gif");
+  
+}
+void mouseDragged(){
+   x=mouseX;y=mouseY;
+}
+void draw(){
+  image(cmap, 0,0);
+  noStroke();
+  fill(f);
+  ellipse(x, y, r , r);
+if (keyPressed){
+  //use - and + to change the brush size
+  if(key=='+'){
+    r = r+5;
+  }
+  if(key=='-'){
+    r=r-5;}
+  //use space to wipe the canvas 
+   if(key==' '){
+    background(0); 
+   }
+ //hold c and mouse click on the color swatch to select that color. hold c and press anywhere outside the image to select black
+   if(key=='c'){
+     if (mousePressed){
+       f =cmap.get(mouseX,mouseY);
+     }
+   }
+}
+}
+
+     
