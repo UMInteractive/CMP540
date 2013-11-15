@@ -27,10 +27,12 @@ void setup (){
     textSize (45);
     text(" Welcome to Paca Woman!",20,50);
     textSize(30);
-    text("p, pause the game and z resume your pause", 20,100);
-    text ("Use, 'UP','DOWN','LEFT','RIGHT' ARROWS", 20,200);
+    text("p, pause the game and z resume your pause", 20,150);
+    text (" Use the 'UP','DOWN','LEFT','RIGHT' ARROWS", 20,200);
     text ("hitting the walls will start the game over",20, 300);
     textSize(30);
+    text("START GAME BY PRESSING THE ARROW KEY", 70, 500);
+    textSize(700);
 //    int m=minute ();// values from 0-59
 //    int s= second ();// values from 0-59
 //    int h=hour (); // values from 0-23
@@ -40,7 +42,7 @@ void setup (){
   
 }
 void draw (){
-  delay(800);
+  delay(700);
   background (0);// make the background dots=food
   for (int x=40; x<width; x=x+40){
     for (int y=40; y<height; y=y+40){
