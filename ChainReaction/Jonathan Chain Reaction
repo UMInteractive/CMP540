@@ -1,0 +1,96 @@
+float ax=100;
+float bx=120;
+float cx=450;
+float ay=0;
+float by=400;
+float cy=380;
+float ar=0;
+float br=5;
+float cr=5;
+boolean a=true;
+boolean b=false;
+boolean c=false;
+float lx1=450;
+float ly1=20;
+float lx2=450;
+float ly2=20;
+boolean l1=false;
+float er=0;
+boolean done=false;
+void setup(){
+ size(500,500); 
+}
+
+void draw(){
+  if (a){
+   ellipse(ax,ay,ar,ar);
+   movea(); 
+  }
+  if (dist(ax,ay,bx,by)<=(ar/2+br/2)){
+   b=true; 
+   a=false;
+  }
+  if (b){
+   ellipse(bx,by,br,br);
+    moveb(); 
+  }
+  if (dist(bx,by,cx,cy)<=(br/2-cr/2)){
+   c=true; 
+   b=false;
+  }
+  if (c){
+   ellipse(cx,cy,cr,cr);
+    movec(); 
+  }
+  if (cy-cr/2<=20){
+   l1=true;
+   c=false; 
+  }
+  if (l1){
+    line(lx1,ly1,lx2,ly2);
+    extendl1(); 
+  }
+  if (lx2<50){
+   ellipse(50,20,er,er);
+   done=true;
+   l1=false;
+  ax=-500;
+  ay=-500;
+  bx=-500;
+  by=-500;
+  cx=-500;
+  cy=-500; 
+  }
+  if(done){
+   end(); 
+  }
+  if(er>2000){
+   done=false;
+   fill(0);
+  }
+}
+
+void movea(){
+ ay++;
+ ar++; 
+}
+
+void moveb(){
+  bx++;
+  br++;
+}
+
+void movec(){
+ cy--;
+ cr++; 
+}
+
+void extendl1(){
+ lx2--;
+ lx1++; 
+}
+
+void end(){
+ fill(random(255));
+ er = er + 10;
+}
