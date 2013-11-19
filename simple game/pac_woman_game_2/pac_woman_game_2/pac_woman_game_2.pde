@@ -39,14 +39,15 @@ void draw () {
 
     textFont(font);
     textSize (45);
-    text(" Welcome to Paca Woman!", 20, 50);
+    text(" Welcome to Paca Woman(PW)!", 20, 50);
     textSize(30);
-    text("p, pause the game and z resume your pause", 20, 150);
+    text("p, pause the game and z resume your game", 20, 150);
     text (" Use the 'UP','DOWN','LEFT','RIGHT' ARROWS", 20, 200);
-    text ("hitting the walls will start the game over", 20, 300);
+    text ("Hitting the walls will start the game over", 20, 300);
+    text ("PW will always start over at the begin of the game", 20, 400);
     textSize(30);
-    text("START GAME BY PRESSING THE ARROW KEY", 70, 500);
-    textSize(700);
+    text("START GAME BY PRESSING THE ARROW KEY TWICE ", 20, 500);
+    textSize(50);
   }
 
   if (gameStart1==1) {
@@ -88,6 +89,8 @@ void playStop() {
 }
 
 void keyReleased () {
+ 
+  /*
   if (keyCode==UP) { 
     keyUp=false;
   }
@@ -99,13 +102,13 @@ void keyReleased () {
   }
   if (keyCode==LEFT) {
     keyLeft=false;
-  }
+  }*/
 }
 
 
 void keyPressed() {//pac does not move unless key pressed 
   if (gameStart1 == 0) {
-    gameStart1 = 1;
+    gameStart1 =  1;
     return;
   }
   if (gameStart1 == 1) {
