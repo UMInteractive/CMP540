@@ -1,0 +1,65 @@
+int x = 0;
+int y = 0; 
+int ballx = 300;
+int bally = 90;
+int ball2x = 300;
+int ball2y = 350;
+int ball3x = 500;
+int ball3y = 500;
+//starting coordinates for balls//
+
+void setup() {
+  size(780, 600);
+}
+
+void draw() {
+  background(0);
+  noStroke();
+  fill(#9B080A);
+  ellipse (x, y, 20, 20);//red ball//
+  fill(#E3B22C);
+  ellipse(ballx, bally, 30, 30);//orange ball//
+  fill(#299024);
+  ellipse(ball2x, ball2y, 40, 40);//green ball//
+  fill(#46A3D3);
+  ellipse(ball3x, ball3y, 50, 50);//blue ball//
+  x++;//moves red ball//
+  y++;
+  if (x >= 100) {
+    y=90;
+  }
+  if (x >= (ballx)) {
+    x--;//stop red ball//
+    ballx++;//make orange ball x coordinate move//
+  }
+  if (ballx >= 310) {
+    ballx=310;//x coordinate for orange ball before it falls//
+    bally+=5;//move orange ball down y axis//
+  }
+  if (bally >= ball2y) {
+    ball2x += 2;//makes orange ball go down//
+  }
+  if (bally >= 350) {
+    bally=350;//coordinates for orange ball after it moves//
+    ballx=310;
+  }
+  if (ball2x > 500) {
+    ball2x=500;//stop green ball where x is 500//
+  }
+  if (ball2x >= 500) {
+    ball2x=500;
+    ball2y+=5;//this was an accident number but it works to make green ball go down!//
+  }
+  if (ball2y >= ball3y) {
+    ball2y= 500;
+    ball3x += 2;//move blue ball right//
+  }
+  fill(#FFFFFF);
+  rect(700, 455, 100, 80);//ball bin//
+  stroke(#FFFFFF);
+  strokeWeight(4);
+  line(0,35, 113, 116);
+  line(115, 116, 310, 116);
+  line(279, 380, 469, 380);
+  line(480, 533, 700, 533);
+}
