@@ -1,21 +1,6 @@
-void playGame(){
-  
-//counter & counter display
-  counter--;
-  if (counter <= 0) {
-      isPlaying=false;
-      isEnded=true;
-  }
-   fill(0);
-  rectMode(CENTER);
-  rect(width/2, (height/2)-(height/10),200,400);
-  textFont(title, 150);
-  textAlign(CENTER);
-  fill(60);
-  text((counter/10)+1, width/2, height/2);
-  rectMode(CORNER);
-  textAlign(LEFT);
-  
+void playGame() {
+  myTimer.count();
+  myTimer.display();
 
   //Player 1
 
@@ -56,11 +41,11 @@ void playGame(){
   //println(score1/1000);
   //println(score2/1000);
   //println(mixerInfo);
-  
-//Keep and display the scorezzzz
+
+  //Keep and display the scorezzzz
   fill(30);
   rect (0, 0, width, 60);
-  fill(256,256,256);
+  fill(256, 256, 256);
   textFont(score, 20);
   text("NOIZEWARZ", width/2-50, 40);
   textFont(score, 48);
@@ -68,8 +53,5 @@ void playGame(){
   text(score1/50, 100, 50);
   fill(c2);
   text(score2/50, width-200, 50);
-
-
 }
- 
 

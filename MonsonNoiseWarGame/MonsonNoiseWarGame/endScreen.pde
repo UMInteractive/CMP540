@@ -1,8 +1,9 @@
-//Start screen 
+//end screen 
 void endScreen() {
-  isPlaying=false;
-  isEnded=true;
+  
+  //FREEEEEEZE!
   noLoop();
+  
   //Title
   fill(0);
   rect(0,100,width,height);
@@ -16,8 +17,10 @@ void endScreen() {
     fill(c2);
     text("YOU WIN!", width/2, height/2);
   }
-
-  //Make this blink like old-school arcade shiz.
+  if (score2==score1){
+    fill(60);
+    text("TIE!", width/2, height/2);
+  }
   fill(0);
   rect(48,height/2+220, width, 150);
   fill (256,256,256);
