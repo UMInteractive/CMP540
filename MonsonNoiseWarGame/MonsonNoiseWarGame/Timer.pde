@@ -1,5 +1,4 @@
 class Timer {
-  int counter = 200;
 
   Timer() {
   }

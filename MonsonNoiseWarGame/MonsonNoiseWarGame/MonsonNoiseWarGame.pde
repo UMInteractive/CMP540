@@ -28,8 +28,8 @@ int xDirection1 = 20;
 int xDirection2 = -20;
 float y1;
 float y2;
-color c1 = color(255, 0, 0);
-color c2 = color(0, 0, 255);
+color c1 = color(244, 115, 33);
+color c2 = color(0, 80, 48);
 int w1 = 50;
 int w2 = 50;
 int score1 = 0;
@@ -39,6 +39,8 @@ int score2 = 0;
 boolean isPlaying;
 boolean isEnded;
 
+//global counter
+int counter = 200;
 
 void setup() {
 
@@ -102,7 +104,7 @@ if (key == ' ') {
     loop(); 
     }
   }
-
+/*
   //Dummy widths for debugging
   if (key == '1') {
     w1+=50;
@@ -114,6 +116,7 @@ if (key == ' ') {
     w2 = 10;
     w1 = 10;
   }
+*/
 }
 
 

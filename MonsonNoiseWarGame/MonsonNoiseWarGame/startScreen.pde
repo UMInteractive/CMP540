@@ -11,8 +11,8 @@ void startScreen(){
   x2 = width;
   score1=0;
   score2=0;
-  w1=50;
-  w2=50;
+  w1=30;
+  w2=30;
 
   //Title
 

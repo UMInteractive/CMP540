@@ -6,7 +6,7 @@ void endScreen() {
   
   //Title
   fill(0);
-  rect(0,100,width,height);
+  rect(0,60,width,height);
   textFont(title, 150);
   textAlign(CENTER);
   if (score1 > score2){
