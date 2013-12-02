@@ -23,7 +23,7 @@ class WordTile extends Word {
   }  //setXY()
 
   void setFontSize() {
-    tileFS = map(freq, 1, 23, 9, 340);
+    tileFS = map(freq, 1, 23, 5, 240);
     setSize();
   }  //setFontSize()
 

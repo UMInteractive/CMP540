@@ -37,7 +37,7 @@ void setup() {
   String delimiters      = " ,./<>?;':'\"[{]}\\|+=_-)(*&^%$#@!~`";
   tokens                 = splitTokens(rawText, delimiters);
 
-  size(1000, 1000, OPENGL);
+  size(500, 1000, OPENGL);
   font                    = createFont("Bangla MN", 120);
 //font = loadFont("BanglaMN-95.vlw");
 
