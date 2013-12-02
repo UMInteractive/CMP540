@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Spinning Flower</title>
+        <script src="processing.js"></script>
+<meta charset="utf-8">
+<style type="text/css">
+body {
+	background-color: #CCC;
+}
+</style>
+</head>
+<body>
+
+        <canvas data-src="spin/spin.pde"></canvas>
+        
+        
+         <input id="colourup" type="button" value="colourup" onclick="doColourup();" />
+         <input id="colourdwn" type="button" value="colourdwn" onclick="doColourdwn();" />
+         <input id="transup" type="button" value="transup" onclick="doTransup();" />
+         <input id="transdwn" type="button" value="transdwn" onclick="doTransdwn();" />
+                   <input id="speedup" type="button" value="speedup" onclick="doSpeedup();" />
+         <input id="speeddwn" type="button" value="speeddwn" onclick="doSpeeddwn();" />
+
+<script type="application/javascript">
+
+var jsSpeed = "1";	
+var jsInt = "30";
+var jsColour = "1";
+function doColourup() {
+	jsColour = jsColour * 1;
+	jsColour = jsColour + .1;
+	
+}
+function doColourdwn() {
+	jsColour = jsColour * 1;
+	jsColour = jsColour - .1;
+
+}
+function doTransup() {
+	jsInt = jsInt * 1;
+	jsInt = jsInt + 1;
+	
+}
+function doTransdwn() {
+	jsInt = jsInt * 1;
+	jsInt = jsInt - 1;
+
+}
+function doSpeedup() {
+	jsSpeed = jsSpeed * 1;
+	jsSpeed = jsSpeed + .1;
+	
+}
+function doSpeedwn() {
+	jsSpeed = jsSpeed * 1;
+	jsSpeed = jsSpeed - .1;
+
+}
+
+    </script>
+
+</body>
+</html>
