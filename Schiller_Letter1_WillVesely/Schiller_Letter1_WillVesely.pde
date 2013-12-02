@@ -37,7 +37,7 @@ void setup() {
   String delimiters      = " ,./<>?;':'\"[{]}\\|+=_-)(*&^%$#@!~`";
   tokens                 = splitTokens(rawText, delimiters);
 
-  size(500, 1000, OPENGL);
+  size(500, 800, OPENGL);
   font                    = createFont("Bangla MN", 120);
 //font = loadFont("BanglaMN-95.vlw");
 
@@ -53,7 +53,7 @@ void draw() {
   background(255);
 
   pushMatrix();
-  translate(99, 200);
+  translate(75, 200);
   table.display(N);
   popMatrix();
 } //draw
