@@ -7,5 +7,5 @@ void setup() {
 }
 
 void draw() {
-  image(myImage, 0, 0, myImage.width/2, 200);
+  image(myImage, 0, 0, myImage.width/2, myImage.height/2);
 }
