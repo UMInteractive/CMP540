@@ -9,7 +9,6 @@ import javax.sound.sampled.*;
 Minim minim;
 AudioInput input;
 Mixer.Info[] mixerInfo;
-Timer myTimer;
 
 //Type
 PFont title;
@@ -35,24 +34,25 @@ int w2 = 50;
 int score1 = 0;
 int score2 = 0;
 
+
 //Play & End booleans
 boolean isPlaying;
 boolean isEnded;
 
-//global counter
-int counter = 200;
+//THE FINAL COUNTDOWN 
+int gameLength = 31*1000;
+int startTime;
+int endTime;
+int timeElapsed;
+int countdown;
 
 void setup() {
-
   size (displayWidth, displayHeight);
   background(0);
   noStroke();
   title = loadFont("MetalLord-Regular-150.vlw");
   score = loadFont("MetalLord-Regular-56.vlw");
   instructions = loadFont("Helvetica-36.vlw");
-  
-  //Initialize timer
-  myTimer = new Timer();
     
   //Initial switches
   isPlaying=false;
@@ -67,12 +67,12 @@ void setup() {
 }
 void draw() {
  
+ 
   //Start with the start screen  
   if (!isPlaying && !isEnded){ 
   //Clear
   fill(0);
   rect(0,0,width,height);
-
   //run startScreen  
     startScreen();
     return;
@@ -81,6 +81,22 @@ void draw() {
   //Play the dang game
   if (isPlaying) {
     playGame();
+    timeElapsed = (millis()-startTime);
+    countdown = (gameLength-timeElapsed)/1000;
+    //display countdown
+      fill(0);
+      rectMode(CENTER);
+      rect(width/2, (height/2-50), 200, 150);
+      textFont(title, 150);
+      textAlign(CENTER);
+      fill(60);
+      text(countdown, width/2, height/2);
+      rectMode(CORNER);
+      textAlign(LEFT);
+    if (countdown==0){
+      isPlaying=!isPlaying;
+      isEnded=true;
+    }
     return;  
   }
   if (isEnded) {
@@ -96,6 +112,8 @@ if (key == ' ') {
       fill(0);
       rect(0,0,width,height);
       isPlaying = true;
+      startTime = millis();
+      endTime = startTime+gameLength;
       }
 
   if (isEnded == true) {    

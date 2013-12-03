@@ -1,7 +1,7 @@
 
 
 void startScreen(){
-  myTimer.reset();
+
   
   //declare title string for responsive positioning
   String noize = "NOIZE";

@@ -1,9 +1,8 @@
 void playGame() {
-  myTimer.count();
-  myTimer.display();
+  
   textAlign(CENTER);
-  String message = "NOIZEWARS";
-  color cMessage = color(256,256,256); 
+  String message1 = "NOIZEWARZ";
+  String message2 = "NOIZEWARZ";
 
   //Player 1
 
@@ -28,6 +27,7 @@ void playGame() {
 
 
   //Scoring
+  if (frameCount % 30 == 0){
   score1 = 0;
   score2 = 0; 
   loadPixels();
@@ -41,11 +41,12 @@ void playGame() {
       }
     }
   }
+  }
 
   //SCORING BONUSES!
   
-  //Reset widths to default every few seconds
-  if (counter % 20 == 0){
+  //Reset widths to default every four seconds
+  if (countdown % 4 == 0){
     w1 = 30;
     w2 = 30;
   }
@@ -53,61 +54,51 @@ void playGame() {
   //QUICK START
   if ((score1/50 > 1000) && (score1/50 < 2500) && (score1/50 > score2/50)) {
     w1+=20;
-    cMessage= c1;
-    message="QUICK START!";
+    message1="QUICK START!";
   }
   if ((score2/50 > 1000) && (score2/50 < 2500) && (score2/50 > score1/50)) {
     w2+=20;
-    cMessage= c2;
-    message="QUICK START!";
+    message2="QUICK START!";
   }
   
   //TIME ENDING
-  if (counter<=20 && (counter%5==0)) {
-    w1+=50;
-    cMessage= c1;
-    message="HURRY!";
+  if (countdown<=3) {
+    w1+=100;
+    message1="HURRY!";
   }
-  if (counter<=20 && (counter%5==0)) {
+  if (countdown<=3) {
     w2+=50;
-    cMessage= c2;
-    message="HURRY!";
+    message2="HURRY!";
   }
   
   //SUPER LOUD
     if (y1 < height-100) {
     w1+=10;
-    cMessage= c1;
-    message="SUPER LOUD!";
+    message1="SUPER LOUD!";
   }
   if (y2 < height-100) {
     w2+=10;
-    cMessage= c2;
-    message="SUPER LOUD!";
+    message2="SUPER LOUD!";
   }
   
 /*  //MOAR NOIZE!
    if ((y1>300) && (y1<height/2) ) {
     w1+=10;
-    cMessage= c1;
-    message="MOAR NOIZE!";
+    message1="MOAR NOIZE!";
   }
    if ((y2>300) && (y2<height/2)) {
     w2+=10;
-    cMessage= c2;
-    message="MOAR NOIZE!";
+    message2="MOAR NOIZE!";
   }
 */  
   //TOO QUIET PENALTY
     if (y1>=100) {
     w1-=20;
-    cMessage= c1;
-    message="TOO QUIET!";
+    message1="TOO QUIET!";
   }
   if (y2>=100) {
     w2-=20;
-    cMessage= c2;
-    message="TOO QUIET!";
+    message2="TOO QUIET!";
   }
 
 
@@ -116,9 +107,12 @@ void playGame() {
   fill(30);
   rect (0, 0, width, 60);
   fill(256, 256, 256);
-  fill(cMessage);
+  fill(c1);
   textFont(score, 20);
-  text(message, width/2-50, 40);
+  text(message1, width/2-200, 40);
+  fill(c2);
+  textFont(score, 20);
+  text(message2, width/2+200, 40);
   textFont(score, 48);
   fill(c1);
   text(score1/50, 100, 50);
@@ -129,6 +123,6 @@ void playGame() {
   //println(score1/1000);
   //println(score2/1000);
   //println(mixerInfo);
-  println(counter);
+  println(countdown);
 }
 
