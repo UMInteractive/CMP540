@@ -2,8 +2,10 @@ class State {
    float population;
     int x;
     int y;  
-   State(float p) {
+    String name;
+   State(float p, String _n) {
     population = p;
+    name = _n;
     x = width/2;
     y = height/2;  
  } 
