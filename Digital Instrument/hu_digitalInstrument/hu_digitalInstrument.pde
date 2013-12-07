@@ -57,7 +57,7 @@ void draw(){
   fill(255, 255, 0);
   font = loadFont("Chalkboard-Bold-48.vlw");
   textFont(font, 30);
-  text("Druming for the music", 80, 40);
+  text("Drumming for the music", 80, 40);
   textFont(font, 20);
   text("S:start", 20, h);
   text("P:pause", 100, h);
