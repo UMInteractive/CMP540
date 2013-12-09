@@ -1,31 +1,31 @@
 <!DOCTYPE html>
-	<head>
-		<title>processing_test : Built with Processing and Processing.js</title>
-		<script src="processing.js" type="text/javascript"></script>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-
-
-	</head>
-	<body>
-				<canvas id="processingtest" data-processing-sources="processing_test.pde" 
-						width="1000" height="1000">
-
-				</canvas>
-		<form>
-			<input type="text" name="stuff" id="grayness_input"></input>
-			<button id="changeColor">Change</button>
-		</form>
-		<script>
-		$("#changeColor").click(
-			function() {
-				event.preventDefault();
-				var gray = $("#grayness_input").val();
-				Processing.getInstanceById("processingtest").changeGray(parseInt(gray));
-
-			}
-		);
-
-		</script>
-			
-	</body>
-</html>
+-	<head>
+-		<title>processing_test : Built with Processing and Processing.js</title>
+-		<script src="processing.js" type="text/javascript"></script>
+-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+-
+-
+-	</head>
+-	<body>
+-				<canvas id="processingtest" data-processing-sources="processing_test.pde" 
+-						width="1000" height="1000">
+-
+-				</canvas>
+-		<form>
+-			<input type="text" name="stuff" id="grayness_input"></input>
+-			<button id="changeColor">Change</button>
+-		</form>
+-		<script>
+-		$("#changeColor").click(
+-			function() {
+-				event.preventDefault();
+-				var gray = $("#grayness_input").val();
+-				Processing.getInstanceById("processingtest").changeGray(parseInt(gray));
+-
+-			}
+-		);
+-
+-		</script>
+-			
+-	</body>
+-</html>

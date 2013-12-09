@@ -1,3 +1,4 @@
+
 int gray;
 void setup() {
  background(0);
