@@ -68,21 +68,6 @@ void draw(){
     b1 -= 3;
     b2 += 3;
     b3 -= 3;
-    
-  fill(0, 191, 255);
-  font = loadFont("Chalkboard-Bold-48.vlw");
-  textFont(font, 25);
-  text("Press n to restart", a, 480);
-  a -= 5;
-  if(a < 15){
-    a = 10;
-  }
-  if(b1 < 0){
-    b1 = -20;
-   }
-  if(b2 > 500){
-    b2 = 530;
-   }
   }
  }
  
