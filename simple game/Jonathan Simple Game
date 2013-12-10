@@ -31,7 +31,7 @@ PFont font;
 
 
 void setup() {
-  size(400,400);
+  size(500,500);
   smooth();
   font=loadFont("AgencyFB-Bold-48.vlw");
   textFont(font, 32);
@@ -61,7 +61,7 @@ void draw() {
 
 if (timer >0){
   if (random(1) < 0.2) {
-    float sz = random(4,8);
+    float sz = random(4,14);
     particles.add(new Particle(random(50,350),-20,sz));
     timer--;
     
@@ -70,9 +70,9 @@ if (timer >0){
   }
 }
   else{
-   text("Score: " + score, 5,25);
-   text("Press 1 to restart", 100, 250);
-   text("Press 2 to restart a longer game", 25, 350);
+   text("Score: " + score, 5,35);
+   text("Press 1 to restart", 150, 275);
+   text("Press 2 to restart a longer game", 75, 350);
   }
   
 if (keyPressed){
@@ -307,8 +307,6 @@ class Particle {
     stroke(0);
     strokeWeight(1);
     ellipse(0, 0, r*2, r*2);
-    // Let's add a line so we can see the rotation
-    line(0, 0, r, 0);
     popMatrix();
   }
 
