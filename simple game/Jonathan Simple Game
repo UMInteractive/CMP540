@@ -71,9 +71,20 @@ if (timer >0){
 }
   else{
    text("Score: " + score, 5,25);
-   text("CLick the mouse to restat", 50, 250); 
+   text("Press 1 to restart", 100, 250);
+   text("Press 2 to restart a longer game", 25, 350);
   }
-
+  
+if (keyPressed){
+  if (key == '1') {
+    score = 0;
+    timer=200;
+  }
+  if (key == '2'){
+    score =0;
+   timer=500; 
+  }
+}
 
   // We must always step through time!
   box2d.step();
@@ -115,10 +126,8 @@ if (timer >0){
   // spring.display();
 }
 
-void mousePressed() {
-  score = 0;
-  timer=200;
-}
+
+
 
 // Collision event functions!
 void beginContact(Contact cp) {
@@ -151,9 +160,6 @@ void beginContact(Contact cp) {
 // Objects stop touching each other
 void endContact(Contact cp) {
 }
-
-
-
 
 
 // The Nature of Code
@@ -333,9 +339,6 @@ class Particle {
   }
 }
 
-
-
-
 // The Nature of Code
 // <http://www.shiffman.net/teaching/nature>
 // Spring 2010
@@ -416,6 +419,12 @@ class Spring {
   }
 
 }
+
+
+
+
+
+
 
 
 
