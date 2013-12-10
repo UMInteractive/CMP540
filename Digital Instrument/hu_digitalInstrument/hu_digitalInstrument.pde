@@ -20,6 +20,7 @@ Drum drum4;
 Drum drum5;
 Drum drum6;
 Drum drum7;
+Drum drum8;
 
 PFont font;
 float h = 470;
@@ -50,6 +51,8 @@ void setup(){
   drum5 = new Drum(140, 250, 100, 100);
   drum6 = new Drum(250, 200, 100, 100);
   drum7 = new Drum(360, 250, 100, 100);
+  drum8 = new Drum(80, 150, 30, 30);
+  drum8.drumColor = color(255);
 }
 
 void draw(){
@@ -101,25 +104,61 @@ void keyPressed(){
   if(key == CODED){
   if(keyCode == UP){
     tom2.trigger();
+    drum8.x = 250;
+    drum8.y = 200;
+    drum8.radius1 = 100;
+    drum8.radius2 = 100;
+    drum8.display();
   }
   if(keyCode == DOWN){
     kick.trigger();
+    drum8.x = 250;
+    drum8.y = 350;
+    drum8.radius1 = 230;
+    drum8.radius2 = 230;
+    drum8.display();
   }
   if(keyCode == LEFT){
     tom1.trigger();
+    drum8.x = 140;
+    drum8.y = 250;
+    drum8.radius1 = 100;
+    drum8.radius2 = 100;
+    drum8.display();
   }
   if(keyCode == RIGHT){
     tom3.trigger();
+    drum8.x = 360;
+    drum8.y = 250;
+    drum8.radius1 = 100;
+    drum8.radius2 = 100;
+    drum8.display();
   }
   }
   if(key == ' '){
     snr.trigger();
+    drum8.x = 80;
+    drum8.y = 330;
+    drum8.radius1 = 80;
+    drum8.radius2 = 80;
+    drum8.display(); 
+
   }
   if(key == 'g' || key == 'G'){
     hat.trigger();
+    drum8.x = 80;
+    drum8.y = 150;
+    drum8.radius1 = 100;
+    drum8.radius2 = 40;
+    drum8.display();
   }
   if(key == 'h' || key == 'H'){
     trash.trigger();
+    drum8.x = 420;
+    drum8.y = 150;
+    drum8.radius1 = 100;
+    drum8.radius2 = 40;
+    drum8.display();
  }
 }
     
