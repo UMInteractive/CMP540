@@ -10,7 +10,7 @@ class Randest
   {
     x = random(300); // current position
     nMove = random(300); // future position
-    easing = 0.02; // Affects speed of line rendered. slower: pronounced faster: messier
+    easing = .02; // Affects speed of line rendered. slower: pronounced faster: messier
   }
   
   

@@ -7,7 +7,7 @@
 Randest myRandest[] = new Randest[8];
 
 float[] p = new float[8];
-int windowSize = 500;
+int windowSize = 1000;
 
 void setup()
 {
@@ -37,6 +37,6 @@ void draw()
     }
  
  //Create Generative Art
- stroke(255, 100, 0, 20);
+ stroke(255, 250, 255, 20);
  bezier(p[0], p[1], p[2], p[3], p[4], p[5], p[6], p[7]);
 }
