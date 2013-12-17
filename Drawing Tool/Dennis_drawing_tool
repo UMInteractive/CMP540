@@ -1,0 +1,31 @@
+boolean drawing = false;
+
+void setup(){
+  size (500,500);
+  smooth();
+  noStroke();
+  }
+
+void draw(){
+  ellipse(0,0,100,50);
+  if (drawing == true){
+    ellipse(mouseX, mouseY, 50, 50);
+    }
+}
+
+
+void mousePressed(){
+  if (mouseX > 0 && mouseX < 100 && mouseY > 0 && mouseY < 50)
+    {
+    fill (random(255), random(255), random(255));
+    }
+  else
+    {
+    drawing = true;
+    }
+  }
+
+void mouseReleased()
+  {
+  drawing = false;
+  }
