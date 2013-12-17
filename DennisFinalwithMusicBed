@@ -1,0 +1,257 @@
+import ddf.minim.spi.*;
+import ddf.minim.signals.*;
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.ugens.*;
+import ddf.minim.effects.*;
+
+
+Card[] card = new Card[50]; 
+Integer[] symbols = {11, 12, 21, 22, 31, 32, 41, 42, 51, 52, 61, 62}; // Use numbers to represent faces of cards
+
+int cardWidth = 150, cardHeight = 150, cardTextSize = (cardWidth / 5);
+int leftMargin = 20, topMargin = 20, cardSpacing = 10, rightMargin = leftMargin + (cardWidth * 4) + (cardSpacing * 4); // Used for formatting how cards are displayed
+int tempXpos = leftMargin, tempYpos = topMargin; 
+ 
+int cardNum = 0; 
+int numSelectedCards = 0; 
+int firstCard, firstCardSymbol, secondCard, secondCardSymbol; 
+int numMoves = 0; 
+
+Minim minim;
+AudioPlayer player;
+
+ 
+void setup() {
+  size(800, 600);
+  background(255);
+    minim = new Minim(this);
+  
+  // loadFile will look in all the same places as loadImage does.
+  // this means you can find files that are in the data folder and the 
+  // sketch folder. you can also pass an absolute path, or a URL.
+  player = minim.loadFile("life.mp3");
+  
+  // play the file
+  player.play();
+ 
+  textFont(createFont("ComicSansMS-Bold-48", cardTextSize));
+ 
+ 
+  for (int row=0;row<3;row++) {
+    for (int col=0;col<4;col++) {
+      card[cardNum] = new Card();
+      card[cardNum].createCard(symbols[cardNum]); 
+      cardNum++;
+    }
+ 
+    tempXpos = leftMargin;
+    tempYpos += (cardHeight + cardSpacing);
+  }
+}
+ 
+void draw() {
+  noStroke();
+  fill(255);
+  rect(rightMargin,0,200,200);
+ 
+  fill(0);
+  textAlign(LEFT);
+  text("Moves: " + numMoves, rightMargin, topMargin + (cardHeight * 0.2));
+  stroke(0);
+}
+ 
+
+ 
+ 
+void mousePressed() {
+  int clickXpos = mouseX, clickYpos = mouseY; // Get co-ords of mouse click
+ 
+  
+  if (numSelectedCards >= 2) {
+    for (int i=0;i<cardNum;i++) {
+      card[i].setSelected(false);
+      card[i].drawCard();
+    }
+    numSelectedCards = 0;
+  }
+  else {
+    int cardXposStart, cardXposEnd, cardYposStart, cardYposEnd; // Used to store co-ords of edges of the cards
+ 
+    
+    for (int i=0;i<cardNum;i++) {
+     
+      if (card[i].getPaired() == false) {
+        cardXposStart = card[i].getXpos(); 
+        cardXposEnd = card[i].getXedge(); 
+        cardYposStart = card[i].getYpos(); 
+        cardYposEnd = card[i].getYedge(); 
+ 
+        // Check if mouse click is within card area
+        if ((clickXpos > cardXposStart && clickXpos < cardXposEnd) &&
+          (clickYpos > cardYposStart && clickYpos < cardYposEnd)) {
+ 
+          
+          if (card[i].getSelected() == false) {
+            
+            card[i].setSelected(true);
+            card[i].drawCard();
+            numSelectedCards++; 
+            numMoves++;
+ 
+            
+            if (numSelectedCards == 1) {
+              
+              firstCard = i;
+              firstCardSymbol = (card[i].getSymbol())/10;
+            }
+            else if (numSelectedCards == 2) {
+              
+              secondCard = i;
+              secondCardSymbol = (card[i].getSymbol())/10;
+ 
+             
+              if (firstCardSymbol == secondCardSymbol) {
+                
+                card[firstCard].setPaired(true);
+                card[secondCard].setPaired(true);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+ 
+class Card
+{
+  int symbol, cardXpos, cardYpos, cardXedge, cardYedge;
+  boolean selected, paired;
+ 
+  Card() {
+    selected = false;
+    paired = false;
+  }
+ 
+  void createCard(int tempSymbol) {
+    symbol = tempSymbol;
+    cardXpos = tempXpos;
+    cardXedge = cardXpos + cardWidth;
+    cardYpos = tempYpos;
+    cardYedge = cardYpos + cardHeight;
+ 
+    fill(0);
+    rect(tempXpos, tempYpos, cardWidth, cardHeight);
+    tempXpos += (cardWidth + cardSpacing); // Change x pos ready for next card to be drawn
+  }
+ 
+  //********** Accessor methods **********//
+  int getXpos() {
+    return cardXpos;
+  }
+ 
+  int getYpos() {
+    return cardYpos;
+  }
+ 
+  int getXedge() {
+    return cardXedge;
+  }
+ 
+  int getYedge() {
+    return cardYedge;
+  }
+ 
+  boolean getSelected() {
+    return selected;
+  }
+ 
+  boolean getPaired() {
+    return paired;
+  }
+ 
+  int getSymbol() {
+    return symbol;
+  }
+
+ 
+ 
+  void setSelected(boolean select) {
+    selected = select;
+  }
+ 
+  void setPaired(boolean pair) {
+    paired = pair;
+  }
+  
+ 
+  void drawCard() {
+    String cardText = "";
+    if (paired == false) { 
+      if (selected == true) {
+       
+        switch(symbol) {
+        case 11:
+          fill(255, 0, 0);
+          break;
+        case 12:
+          fill(255);
+          cardText = "Red";
+          break;
+        case 21:
+          fill(0, 255, 0);
+          break;
+        case 22:
+          fill(255);
+          cardText = "Green";
+          break;
+        case 31:
+          fill(0, 0, 255);
+          break;
+        case 32:
+          fill(255);
+          cardText = "Blue";
+          break;
+        case 41:
+          fill(255, 255, 0);
+          break;
+        case 42:
+          fill(255);
+          cardText = "Yellow";
+          break;
+        case 51:
+          fill(255, 128, 0);
+          break;
+        case 52:
+          fill(255);
+          cardText = "Orange";
+          break;
+        case 61:
+          fill(255, 0, 128);
+          break;
+        case 62:
+          fill(255);
+          cardText = "Pink";
+          break;
+        default:
+          break;
+        }
+      }
+     
+      else if (selected == false) {
+        fill(0);
+        rect(cardXpos, cardYpos, cardWidth, cardHeight);
+      }
+ 
+      
+      if (symbol%10 == 1) {
+        rect(cardXpos, cardYpos, cardWidth, cardHeight);
+      }
+      else if (symbol%10 == 2) {
+        textAlign(CENTER);
+        text(cardText, cardXpos + (cardWidth/2), cardYpos + (cardHeight/2));
+      }
+    }
+  }
+}
