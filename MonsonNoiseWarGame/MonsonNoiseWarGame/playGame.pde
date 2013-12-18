@@ -43,7 +43,7 @@ void playGame() {
   }
   }
 
-/*//SCORING BONUSES!
+//SCORING BONUSES!
   
  //Reset widths to default every 3 seconds
   if (countdown % 3 == 0){
@@ -61,7 +61,7 @@ void playGame() {
     message2="QUICK START!";
   }
 
-  
+/*  
   //TIME ENDING
   if (countdown<=3) {
     w1+=1;
@@ -70,17 +70,18 @@ void playGame() {
   if (countdown<=3) {
     w2+=1;
     message2="HURRY!";
-  } 
+  }
+*/  
   //SUPER LOUD
-    if (y1 == height) {
+    if (y1 <= 100) {
     w1+=1;
     message1="SUPER LOUD!";
   }
-  if (y2 == height-100) {
+  if (y2 <= 100) {
     w2+=1;
     message2="SUPER LOUD!";
   }
-  
+/*
  //MOAR NOIZE!
    if ((y1>300) && (y1<height/2) ) {
     w1-=1;
@@ -90,17 +91,17 @@ void playGame() {
     w2-=10;
     message2="MOAR NOIZE!";
   }
-  
+*/  
   //TOO QUIET PENALTY
-    if (y1>=100) {
+    if (y1>=height-100) {
     w1-=1;
     message1="TOO QUIET!";
   }
-  if (y2>=100) {
+  if (y2>=height-100) {
     w2-=1;
     message2="TOO QUIET!";
   }
-*/
+
 
   //Keep and display the messages and scorezzzzzzz
   textAlign(LEFT);
