@@ -51,7 +51,7 @@ void playGame() {
     w2 = 30;
   }
  
-  //QUICK START
+ /* //QUICK START
   if ((score1/50 > 1000) && (score1/50 < 2500) && (score1/50 > score2/50)) {
     w1+=1;
     message1="QUICK START!";
@@ -61,7 +61,7 @@ void playGame() {
     message2="QUICK START!";
   }
 
-/*  
+  
   //TIME ENDING
   if (countdown<=3) {
     w1+=1;
