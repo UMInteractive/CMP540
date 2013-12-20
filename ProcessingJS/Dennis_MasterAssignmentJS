@@ -1,0 +1,221 @@
+(function($p) {
+    var Ball = (function() {
+        function Ball() {
+            var $this_1 = this;
+
+            function $superCstr() {
+                $p.extendClassChain($this_1)
+            }
+            $this_1.x = 0;
+            $this_1.y = 0;
+            $this_1.diameter = 0;
+            $this_1.vx = 0;
+            $this_1.vy = 0;
+            $this_1.r = 0;
+            $this_1.g = 0;
+            $this_1.b = 0;
+            $this_1.id = 0;
+            $this_1.others = null;
+            $this_1.color_mode = $p.RGB;
+
+            function collide$0() {
+                var chance = $p.parseInt($p.random(2, 300));
+                for (var i = $this_1.id + 1; i < numBalls; i++) {
+                    var dx = $this_1.others[i].x - $this_1.x;
+                    var dy = $this_1.others[i].y - $this_1.y;
+                    var distance = $p.sqrt(dx * dx + dy * dy);
+                    var minDist = $this_1.others[i].diameter / 2 + $this_1.diameter / 2;
+
+                    if (distance < minDist) {
+                        var angle = $p.atan2(dy, dx);
+                        var targetX = $this_1.x + $p.cos(angle) * minDist;
+                        var targetY = $this_1.y + $p.sin(angle) * minDist;
+                        var ax = (targetX - $this_1.others[i].x) * spring;
+                        var ay = (targetY - $this_1.others[i].y) * spring;
+
+                        $this_1.vx -= ax;
+                        $this_1.vy -= ay;
+                        $this_1.others[i].vx += ax;
+                        $this_1.others[i].vy += ay;
+
+                        if (chance % 10 == 0) {
+                            $this_1.others[i].color_mode = $p.HSB;
+                            $this_1.others[i].r = $p.parseInt($p.random(255));
+                            $this_1.others[i].g = $p.parseInt($p.random(255));
+                            $this_1.others[i].b = $p.parseInt($p.random(255));
+
+                            $this_1.others[i].diameter = $p.random(30, 100);
+                        } else {
+                            $this_1.others[i].color_mode = $p.RGB;
+                        }
+                    }
+                }
+            }
+            $p.addMethod($this_1, 'collide', collide$0);
+
+            function move$0() {
+                $this_1.vy += gravity;
+                $this_1.x += $this_1.vx;
+                $this_1.y += $this_1.vy;
+                if ($this_1.x + $this_1.diameter / 2 > $p.width) {
+                    $this_1.x = $p.width - $this_1.diameter / 2;
+                    $this_1.vx *= friction;
+                } else if ($this_1.x - $this_1.diameter / 2 < 0) {
+                    $this_1.x = $this_1.diameter / 2;
+                    $this_1.vx *= friction;
+                }
+                if ($this_1.y + $this_1.diameter / 2 > $p.height) {
+                    $this_1.y = $p.height - $this_1.diameter / 2;
+                    $this_1.vy *= friction;
+                } else if ($this_1.y - $this_1.diameter / 2 < 0) {
+                    $this_1.y = $this_1.diameter / 2;
+                    $this_1.vy *= friction;
+                }
+            }
+            $p.addMethod($this_1, 'move', move$0);
+
+            function display$0() {
+                $p.smooth();
+                $p.noStroke();
+                $p.fill($this_1.r, $this_1.g, $this_1.b);
+                $p.ellipse($this_1.x, $this_1.y, $this_1.diameter, $this_1.diameter);
+            }
+            $p.addMethod($this_1, 'display', display$0);
+
+            function $constr_8(r, g, b, xin, yin, din, idin, oin) {
+                $superCstr();
+
+                $this_1.x = xin;
+                $this_1.y = yin;
+                $this_1.diameter = din;
+                $this_1.id = idin;
+                $this_1.others = oin;
+                $this_1.r = r;
+                $this_1.g = g;
+                $this_1.b = b;
+                $p.colorMode($this_1.color_mode);
+            }
+
+            function $constr() {
+                if (arguments.length === 8) {
+                    $constr_8.apply($this_1, arguments);
+                } else $superCstr();
+            }
+            $constr.apply(null, arguments);
+        }
+        return Ball;
+    })();
+    $p.Ball = Ball;
+
+    var numBalls = 6;
+    var spring = 0.05;
+    var gravity = 0.03;
+    var friction = -0.9;
+    var red = 0;
+    var green = 0;
+    var blue = 0;
+    var counter = 0;
+    var balls = $p.createJavaArray('Ball', [500]);
+    var clicked = null;
+    var num = 60;
+    var mx = $p.createJavaArray('float', [num]);
+    var my = $p.createJavaArray('float', [num]);
+
+    function setup() {
+        $p.size(500, 500);
+        $p.noStroke();
+        for (var i = 0; i < numBalls; i++) {
+            balls[i] = new Ball(190, 190, 190, $p.random($p.width), $p.random($p.height), $p.random(60, 100), i, balls);
+        }
+    }
+    $p.setup = setup;
+
+    function change_background() {
+        if (red > 255) red = 0;
+
+        if (green > 255) green = 0;
+
+        if (blue > 255) blue = 0;
+
+        if (counter % 40 == 0) {
+            red += $p.random(1, 50);
+            blue += $p.random(1, 50);
+            green += $p.random(1, 50);
+        }
+    }
+    $p.change_background = change_background;
+
+    function draw() {
+        counter++;
+
+        $p.background(red, green, blue);
+
+        for (var i = 0; i < numBalls; i++) {
+            balls[i].collide();
+            balls[i].move();
+            balls[i].display();
+        }
+        change_cursor();
+    }
+    $p.draw = draw;
+
+    function change_cursor() {
+        if (check_bounds()) {
+            $p.cursor($p.HAND);
+        } else $p.cursor($p.ARROW);
+    }
+    $p.change_cursor = change_cursor;
+
+    function create_ball() {
+        if (!check_bounds()) {
+            $p.cursor($p.HAND);
+            numBalls += 1;
+            balls[numBalls - 1] = new Ball(190, 190, 190, $p.random($p.width), $p.random($p.height), $p.random(60, 100), numBalls - 1, balls);
+        }
+    }
+    $p.create_ball = create_ball;
+
+    function check_bounds() {
+        for (var i = 0; i < numBalls; i++) {
+            var d = balls[i].diameter;
+            if (($p.mouseX > balls[i].x - d && $p.mouseX < balls[i].x + d) && ($p.mouseY > balls[i].y - d && $p.mouseY < balls[i].y + d)) {
+                clicked = balls[i];
+                return true;
+            }
+        }
+
+        return false;
+    }
+    $p.check_bounds = check_bounds;
+
+    function drag_ball() {
+        var i = 0;
+
+        if (check_bounds()) {
+            clicked.x = $p.mouseX;
+            clicked.y = $p.mouseY;
+        }
+    }
+    $p.drag_ball = drag_ball;
+
+    function mousePressed() {
+        change_property();
+        create_ball();
+    }
+    $p.mousePressed = mousePressed;
+
+    function mouseDragged() {
+        drag_ball();
+    }
+    $p.mouseDragged = mouseDragged;
+
+    function change_property() {
+        if (check_bounds()) {
+            clicked.r = $p.parseInt($p.random(255));
+            clicked.g = $p.parseInt($p.random(255));
+            clicked.b = $p.parseInt($p.random(255));
+        }
+    }
+    $p.change_property = change_property;
+
+})
