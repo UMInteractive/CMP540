@@ -9,7 +9,7 @@ void setup() {
 
 void draw() {
   //millis keeps counting up, so we just hop along for the ride but range between 0 and 255
-  fill(0, 0, 0, 1);
+  fill(0, 0, 0, 5);
   rect(0, 0, width, height);
   fill(magenta);  
   ellipse(xPosition, height/2, 50, 50);

@@ -3,8 +3,9 @@ PFont myFont2;
 
 void setup() {
   size(500,500);
-  myFont = loadFont("helv.vlw");
+  myFont = loadFont("lotype.vlw");
   myFont2 = loadFont("myriad.vlw");
+  smooth();
 }
 
 void draw() {

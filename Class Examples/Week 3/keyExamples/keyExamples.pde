@@ -13,13 +13,25 @@ void keyPressed() {
   if (keyCode == DOWN) {
    println("Going down!"); 
   }
+  
+  if (keyCode == RIGHT) {
+    
+  }
+  
+  if (keyCode == LEFT) {
+    
+  }
+  
+  if (keyCode == SHIFT) {
+    
+  }
   println("PRESSED " + key); 
 }
 
 void keyReleased() {
  println("RELEASED " + key); 
 }
-
+//gets only "visible" keys
 void keyTyped() {
-// println(key); 
+ println("typed " + key); 
 }

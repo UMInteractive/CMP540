@@ -8,7 +8,7 @@ void setup() {
   rectMode(CENTER); 
   x = width/2;
   y = height/2;
-  radius = 400;
+  radius = 100;
   smooth();
 }
 

@@ -3,7 +3,9 @@ void setup() {
 }
 
 void draw() {
-  //ellipse(mouseX, mouseY, 20,20);
+  if (mousePressed) {
+    ellipse(mouseX, mouseY, 20, 20);
+  }
 }
 
 void mousePressed() {
@@ -15,5 +17,6 @@ void mouseReleased() {
 }
 
 void mouseDragged() {
-  ellipse(mouseX, mouseY, 10, 10); 
+  //ellipse(mouseX, mouseY, 10, 10);
 }
+

@@ -8,13 +8,14 @@ void setup() {
   rectMode(CENTER); 
   x = width/2;
   y = height/2;
-  radius = 400;
   smooth();
 }
 
 void draw() {
+    radius = 400;
+
     // origin + cosine of the angle times half the radius
-    adjustedX = x + cos(radians(angle))*(radius/2);
+    adjustedX = x + cos( radians(angle) )* (radius/2);
     // origin + sin of the angle times half of the radius
     adjustedY = y + sin(radians(angle))*(radius/2);
     //this draws a circular motion in red

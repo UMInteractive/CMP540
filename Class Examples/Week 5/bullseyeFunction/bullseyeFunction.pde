@@ -6,8 +6,9 @@ void setup() {
 
 void draw() {
   background(0);
-  for (int x = 0; x < width; x = x + 10) {
-    bullseye(x, height/2, 15, 10);
+  fill(255,0,0);
+  for (int x = 0; x < width; x = x + 110) {
+    bullseye(x, height/2, 70, 5);
   }
 }
 

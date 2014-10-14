@@ -12,13 +12,13 @@ void setup() {
 
 void draw() {
   myPaintingColor = myImage.get(x,y);
-  x+=5;
+  x+=20;
   if (x >= width) {
    x = 0;
-   y+=5; 
+   y+=20; 
   }
   fill(myPaintingColor);
-  ellipse(x, y, 5, 5);
+  ellipse(x, y, 20, 20);
   
 }
 

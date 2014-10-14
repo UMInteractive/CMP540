@@ -4,7 +4,7 @@ void setup() {
 
 void draw() {
   background(0);
-  circle(mouseX, mouseY, 40);
+  circle(mouseX, mouseY, 400);
 }
 
 void circle(int x, int y, int diameter) {

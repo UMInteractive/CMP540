@@ -37,11 +37,12 @@ void draw() {
  if (y >= height) {
   wanderY = -1; 
  }
- 
+/* 
  if (frameCount%60 == 0) {
     wanderX = random(-1,1);
     wanderY = random(-1,1);
  }
+ */
 }
 
 

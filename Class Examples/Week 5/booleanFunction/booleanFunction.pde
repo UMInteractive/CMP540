@@ -10,8 +10,8 @@ void setup() {
 void draw() {
 
   ellipse(x, y, 5, 5);
-  x+= random(-3, 5);
-  y+= random(-3, 5);
+  x+= random(-5, 5);
+  y+= random(-5, 5);
   if (offScreen(x, y)) {
     x = width/2;
     y = height/2;
@@ -19,19 +19,22 @@ void draw() {
 }
 
 boolean offScreen(int xPos, int yPos) {
-  if (x > width) {
+  if (xPos > width) {
     return true;
   }
-  if (x < 0) {
+  
+  if (xPos < 0) {
     return true;
   }
 
-  if (y > height) {
+  if (yPos > height) {
     return true;
   }
-  if (y < 0) {
+  
+  if (yPos < 0) {
     return true;
   }
+  
   return false;
 }
 
